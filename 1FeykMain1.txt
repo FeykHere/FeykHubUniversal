@@ -1,0 +1,156 @@
+
+local SupportedGames = {
+    -- Game 1
+    [73885730] = {
+        ["FeykHub"] = "https://pastebin.com/raw/7QdY0vXG",
+    },
+    -- Game 2
+    [    [7326934954] = {
+        ["FeykHub v2 | 99NITF"] = "https://raw. githubusercontent.com/JOAOXD842/99-Nights-Stelarium/refs/heads/main/script.lua",
+        ["FeykHub | 99NITF"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/leaked99nights.txt",
+    },
+         [8316902627] = {
+        ["FeykHub | PVSB"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Kasumi_Hub_for_PVSB_CRACKED_OPEN_SOURCE.txt",
+    },
+         [5674379281] = { 
+        ["FeykHub | TB3"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/tha_bronx_3_open_source_script.lua.txt",
+    },
+         [6931042565] = {
+        ["DiddyHub | VL"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/ZECKHUB_CRACKED_open_source.txt",
+    },
+         [7018190066] = {
+        ["Volt Hub | DeadRails"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Laws%20hub.txt",
+    }, 
+         [1686885941] = {
+        ["Volt Hub | BrookHaven"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/TriggerHub_Source_Leaked.txt",
+    },
+         [65241] = {
+        ["FireHub | NDS"] = "https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader",
+    },
+}
+
+local CurrentGameId = game.GameId
+local ScriptsForGame = SupportedGames[CurrentGameId]
+
+if not ScriptsForGame then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "FeykHub Loader";
+        Text = "This game is unsupported!";
+        Duration = 5,
+    })
+    return
+end
+
+--// UI Setup
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local Main = Instance.new("Frame")
+Main.Name = "FeykHubMain"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5,-200,0.5,-160)
+Main.Size = UDim2.new(0,400,0,320)
+Main.Active = true
+Main.ClipsDescendants = true
+
+local MainCorner = Instance.new("UICorner")
+MainCorner.CornerRadius = UDim.new(0,15)
+MainCorner.Parent = Main
+
+local Topbar = Instance.new("Frame")
+Topbar.Name = "Topbar"
+Topbar.Parent = Main
+Topbar.BackgroundColor3 = Color3.fromRGB(20,20,20)
+Topbar.BorderSizePixel = 0
+Topbar.Size = UDim2.new(1,0,0,32)
+
+local TopbarCorner = Instance.new("UICorner")
+TopbarCorner.CornerRadius = UDim.new(0,12)
+TopbarCorner.Parent = Topbar
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = Topbar
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1,-20,1,0)
+Title.Position = UDim2.new(0,10,0,0)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "FeykHub by feyk"
+Title.TextColor3 = Color3.fromRGB(255,255,255)
+Title.TextSize = 18
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+local UIList = Instance.new("UIListLayout")
+UIList.Parent = Main
+UIList.SortOrder = Enum.SortOrder.LayoutOrder
+UIList.Padding = UDim.new(0,10)
+UIList.FillDirection = Enum.FillDirection.Vertical
+UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIList.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- Add Script Buttons
+for ScriptName, ScriptUrl in pairs(ScriptsForGame) do
+    local Btn = Instance.new("TextButton")
+    Btn.Parent = Main
+    Btn.BackgroundColor3 = Color3.fromRGB(30,30,30)
+    Btn.BorderSizePixel = 0
+    Btn.Size = UDim2.new(0,360,0,40)
+    Btn.Font = Enum.Font.GothamBold
+    Btn.TextSize = 16
+    Btn.TextColor3 = Color3.fromRGB(255,255,255)
+    Btn.Text = ScriptName
+
+    local BtnCorner = Instance.new("UICorner")
+    BtnCorner.CornerRadius = UDim.new(0,10)
+    BtnCorner.Parent = Btn
+
+    Btn.MouseButton1Click:Connect(function()
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(ScriptUrl, true))()
+        end)
+        if not success then
+            warn("Failed to load script:", err)
+        end
+    end)
+end
+
+--// Drag Script
+local UIS = game:GetService("UserInputService")
+local dragging, dragInput, dragStart, startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	Main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+		startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+Topbar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or 
+	   input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = Main.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+Topbar.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or 
+	   input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
