@@ -35,9 +35,9 @@ local Window = Rayfield:CreateWindow({
 	ShowText = "The Forge",
 	ToggleUIKeybind = "K",
     Discord = {
-      Enabled = true,
+      Enabled = false,
       Invite = "wN85KUq6nD",
-      RememberJoins = true 
+      RememberJoins = false
     },
 	ConfigurationSaving = {
 		Enabled = true,
@@ -2691,5 +2691,6 @@ do
     -- Ensure default-enabled behavior on first load
     if antiAfk.enabled then AA_Start() end
 end
+
 
 end)
