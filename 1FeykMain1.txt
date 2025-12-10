@@ -2,12 +2,16 @@
 local SupportedGames = {
     -- Game 1
     [73885730] = {
-        ["FeykHub"] = "https://pastebin.com/raw/7QdY0vXG",
+        ["FeykHub"] = "https://raw.githubusercontent.com/FeykHere/FeykHubUniversal/refs/heads/main/UniversalAimbot",
     },
     -- Game 2
-    [    [7326934954] = {
+         [7326934954] = {
         ["FeykHub v2 | 99NITF"] = "https://raw. githubusercontent.com/JOAOXD842/99-Nights-Stelarium/refs/heads/main/script.lua",
-        ["FeykHub | 99NITF"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/leaked99nights.txt",
+        ["FeykHub | 99NITF RECOMMENDED"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/leaked99nights.txt",
+        ["InvinxHub | 99NITF RECOMMENDED"] = "https://api.luarmor.net/files/v3/loaders/2c402e038e618d82db3f0cd6afe853e3.lua",
+    },
+         [7709344486] = {
+        ["SxvyHub | SAB"] = "https://raw.githubusercontent.com/alexscriptsgg/RifaHub/refs/heads/main/Best-sab-script",
     },
          [8316902627] = {
         ["FeykHub | PVSB"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Kasumi_Hub_for_PVSB_CRACKED_OPEN_SOURCE.txt",
@@ -26,6 +30,17 @@ local SupportedGames = {
     },
          [65241] = {
         ["FireHub | NDS"] = "https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader",
+    },
+         [994732206] = {
+        ["RedZHuB | Revamp"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Bloxfruit.lua",
+    },
+         [115797356] = {
+        [" FeykHub | CounterBlox"] = "https://raw.githubusercontent.com/FeykHere/FeykHubUniversal/refs/heads/main/UniversalAimbot",
+    },
+         [3808081382] = {
+        ["Monster Garou MoveSet"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Monster%20garou%20moveset%20by%20greedy%20hub.txt",
+        ["CosmicBeta 1.2v | AutoTech"] = "https://raw.githubusercontent.com/needanewphone32-eng/tsbfiles/refs/heads/main/Main.lua",
+        ["Cosmic CustomUi | AutoTech"] = "https://raw.githubusercontent.com/needanewphone32-eng/tsbfiles/refs/heads/main/Main1.lua",
     },
 }
 
