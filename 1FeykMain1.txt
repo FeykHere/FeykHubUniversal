@@ -32,7 +32,8 @@ local SupportedGames = {
         ["FireHub | NDS"] = "https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader",
     },
          [994732206] = {
-        ["RedZHuB | Revamp"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Bloxfruit.lua",
+        ["unknownHub | patched"] = "https://raw.githubusercontent.com/FeykHere/Test22/refs/heads/main/Bloxfruit.lua",
+        ["RedzHub | Revamped By Me"] = "https://raw.githubusercontent.com/FeykHere/FeykHubUniversal/refs/heads/main/Redz%20Hub%20(NEW-Beatified%20).lua.txt",
     },
          [115797356] = {
         [" FeykHub | CounterBlox"] = "https://raw.githubusercontent.com/FeykHere/FeykHubUniversal/refs/heads/main/UniversalAimbot",
